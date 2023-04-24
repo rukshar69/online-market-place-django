@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from item.models import Category, Item
 from .forms import SignupForm
+from django.contrib.auth import logout
 # Create your views here.
 
 def index(request):
@@ -30,3 +31,10 @@ def signup(request):
     return render(request, 'core/signup.html', {
         'form': form
     })
+
+
+
+def logout_view(request):
+    logout(request)
+    # Redirect to a success page.
+    return redirect('core:index')
