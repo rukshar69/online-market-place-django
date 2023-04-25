@@ -1,0 +1,6 @@
+user: admin
+pw: admin
+
+
+user: ruk
+pw: rukshar_alam
