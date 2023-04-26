@@ -35,4 +35,4 @@
 # puddle/puddle/urls.py: 19
 # puddle/puddle/wsgi.py: 20
 Django == 4.1
-psycopg2
+psycopg2-binary
