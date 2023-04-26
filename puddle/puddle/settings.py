@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-h1bz98zbvl#$7v+$#4rn3jacvpx=g6xb*)s)i&6sf-2^q2galc
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['.vercel.app'] # Allow *.vercel.app
+ALLOWED_HOSTS = ['.vercel.app', '127.0.0.1'] # Allow *.vercel.app
 
 LOGIN_URL = '/login/'
 LOGIN_REDIRECT_URL = '/'
@@ -109,8 +109,8 @@ DATABASES={
       'ENGINE':'django.db.backends.postgresql_psycopg2',
       'NAME':'postgres',
       'USER':'postgres',
-      'PASSWORD':'***',
-      'HOST':'localhost',
+      'PASSWORD':'puddle123##&&',
+      'HOST':'db.xybfobawynqrfyhtatnn.supabase.co',
       'PORT':'5432',
    }
 }
