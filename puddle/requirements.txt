@@ -33,5 +33,6 @@
 # puddle/manage.py: 11
 # puddle/puddle/asgi.py: 12
 # puddle/puddle/urls.py: 19
-# puddle/puddle/wsgi.py: 12
+# puddle/puddle/wsgi.py: 20
 Django == 4.1
+psycopg2 == 2.9.3
