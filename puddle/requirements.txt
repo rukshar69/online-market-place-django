@@ -36,3 +36,4 @@
 # puddle/puddle/wsgi.py: 20
 Django == 4.1
 psycopg2-binary
+PIL == 9.3.0
