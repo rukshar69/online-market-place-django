@@ -18,7 +18,7 @@
 
                 {% if request.user.is_authenticated %}
                     {% if request.user.is_superuser %}
-                        <a href="#" class="px-6 py-3 text-lg font-semibold bg-orange-500 text-white rounded-xl hover:bg-orange-700">Approvals</a>
+                        <a href="{% url 'dashboard:approvals' %}" class="px-6 py-3 text-lg font-semibold bg-orange-500 text-white rounded-xl hover:bg-orange-700">Approvals</a>
                     {% endif %}
                     <a href="{% url 'conversation:inbox' %}" class="px-6 py-3 text-lg font-semibold bg-teal-500 text-white rounded-xl hover:bg-teal-700">Inbox</a>
                     <a href="{% url 'dashboard:index' %}" class="px-6 py-3 text-lg font-semibold bg-gray-500 text-white rounded-xl hover:bg-gray-700">Dashboard</a>

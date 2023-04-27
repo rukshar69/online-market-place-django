@@ -10,3 +10,12 @@ def index(request):
     return render(request, 'dashboard/index.html', {
         'items': items,
     })
+
+
+@login_required
+def approvals(request):
+    items = Item.objects.filter(is_allowed=False)
+
+    return render(request, 'dashboard/approval_list.html', {
+        'items': items,
+    })
