@@ -4,3 +4,6 @@
 db.* 
 superuser.txt
 superbase.txt
+.env
+double-operator-384907-29b18b1d293a.json
+migrations

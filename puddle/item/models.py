@@ -1,5 +1,9 @@
 from django.contrib.auth.models import User
 from django.db import models
+from gdstorage.storage import GoogleDriveStorage
+
+# Define Google Drive Storage
+gd_storage = GoogleDriveStorage()
 
 class Category(models.Model):
     name = models.CharField(max_length=255)
@@ -16,7 +20,7 @@ class Item(models.Model):
     name = models.CharField(max_length=255)
     description = models.TextField(blank=True, null=True)
     price = models.FloatField()
-    image = models.ImageField(upload_to='item_images', blank=True, null=True)
+    image = models.ImageField(upload_to='images',storage=gd_storage, blank=True, null=True)
     is_sold = models.BooleanField(default=False)
     created_by = models.ForeignKey(User, related_name='items', on_delete=models.CASCADE)
     created_at = models.DateTimeField(auto_now_add=True)

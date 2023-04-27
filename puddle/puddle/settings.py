@@ -9,8 +9,10 @@ https://docs.djangoproject.com/en/4.1/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.1/ref/settings/
 """
-
+from dotenv import load_dotenv
+import os
 from pathlib import Path
+load_dotenv()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -44,7 +46,8 @@ INSTALLED_APPS = [
     'core',
     'item',
     'dashboard',
-    'conversation'
+    'conversation',
+    'gdstorage' #google drive storage
 ]
 
 MIDDLEWARE = [
@@ -107,10 +110,10 @@ WSGI_APPLICATION = 'puddle.wsgi.application'
 DATABASES={
    'default':{
       'ENGINE':'django.db.backends.postgresql_psycopg2',
-      'NAME':'postgres',
-      'USER':'postgres',
-      'PASSWORD':'puddle123##&&',
-      'HOST':'db.xybfobawynqrfyhtatnn.supabase.co',
+      'NAME':os.environ.get('DB_NAME'),
+      'USER':os.environ.get('DB_USER'),
+      'PASSWORD':os.environ.get('DB_PASSWORD'),
+      'HOST':os.environ.get('DB_HOST'),
       'PORT':'5432',
    }
 }
@@ -156,3 +159,15 @@ MEDIA_ROOT = BASE_DIR / 'media'
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+#
+# Google Drive Storage Settings
+#
+GOOGLE_DRIVE_STORAGE_JSON_KEY_FILE=None
+GOOGLE_DRIVE_STORAGE_JSON_KEY_FILE_CONTENTS = os.environ.get('GOOGLE_DRIVE_STORAGE_JSON_KEY_FILE_CONTENTS')
+
+
+#GOOGLE_DRIVE_STORAGE_JSON_KEY_FILE = os.path.join(Path(__file__).resolve().parent, 'double-operator-384907-29b18b1d293a.json')
+GOOGLE_DRIVE_STORAGE_MEDIA_ROOT = 'puddle_media'
+#GOOGLE_DRIVE_STORAGE_JSON_KEY_FILE = '/media/rukshar/partition2/personal_projects/experimental/puddle/puddle/double-operator-384907-29b18b1d293a.json'
+#GOOGLE_DRIVE_STORAGE_MEDIA_ROOT = '<base google drive path for file uploads>' # OPTIONAL

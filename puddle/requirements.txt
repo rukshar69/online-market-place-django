@@ -37,3 +37,5 @@
 Django == 4.1
 psycopg2-binary
 Pillow
+django-googledrive-storage
+python-dotenv
