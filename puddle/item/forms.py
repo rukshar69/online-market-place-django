@@ -48,4 +48,4 @@ class EditItemForm(forms.ModelForm):
 class ApprovalForm(forms.ModelForm):
     class Meta:
         model = Item
-        fields = ('is_allowed')
+        fields = ('is_allowed',)
