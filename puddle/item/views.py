@@ -3,7 +3,7 @@ from django.contrib.auth.decorators import login_required
 from django.db.models import Q
 from django.shortcuts import render, get_object_or_404, redirect
 
-from .forms import NewItemForm , EditItemForm
+from .forms import NewItemForm , EditItemForm, ApprovalForm
 from .models import Category, Item
 
 
@@ -82,4 +82,22 @@ def edit(request, pk):
     return render(request, 'item/form.html', {
         'form': form,
         'title': 'Edit item',
+    })
+
+@login_required
+def get_approved(request, pk):
+    item = get_object_or_404(Item, pk=pk)
+    if request.method == 'POST':
+        form = ApprovalForm(request.POST, request.FILES, instance=item)
+
+        if form.is_valid():
+            form.save()
+
+            return redirect('item:detail', pk=item.id)
+    else:
+        form = ApprovalForm(instance=item)
+
+    return render(request, 'item/form.html', {
+        'form': form,
+        'title': 'Approve item',
     })

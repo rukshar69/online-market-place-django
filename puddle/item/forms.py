@@ -44,3 +44,8 @@ class EditItemForm(forms.ModelForm):
                 'class': INPUT_CLASSES
             })
         }
+
+class ApprovalForm(forms.ModelForm):
+    class Meta:
+        model = Item
+        fields = ('is_allowed')
