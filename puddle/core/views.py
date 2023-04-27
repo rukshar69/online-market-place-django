@@ -5,7 +5,7 @@ from django.contrib.auth import logout
 # Create your views here.
 
 def index(request):
-    items = Item.objects.filter(is_sold=False, is_allowed=True)[0:6] #show only the 6 newest items
+    items = Item.objects.filter(is_sold=False, is_allowed=True).order_by('-created_at')[0:6] #show only the 6 newest items
     categories = Category.objects.all()
 
     return render(request, 'core/index.html', {
