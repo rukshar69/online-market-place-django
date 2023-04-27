@@ -27,6 +27,7 @@ Image Hosting: Google Drive API using Python's [Django Google Drive Storage](htt
     - If the visitor is not the owner of that item, the button **Contact Seller** appears. Here one can send a message to the owner of that item. 
     - At the bottom of the detail page for an item, at most 3 item cards of the same category not owned by the logged in user will appear
 - The [Inbox](https://online-market-place-django.vercel.app/inbox/) page lists the conversations for items where the sellers have been contacted. Clicking on a conversation leads one to the chatroom where one can send further messages to the seller.
+- For superusers, there is an additional button in the nav bar named *Approval* that lists all the items that haven't been approved by the superuser(admin). The admin clicks on an item that leads them to a page to mark the check box for approving the item to appear in homepage and browse page.
 
 # References
 - [YouTube tutorial to construct this project locally](https://www.youtube.com/watch?v=ZxMB6Njs3ck)
