@@ -22,6 +22,7 @@ class Item(models.Model):
     price = models.FloatField()
     image = models.ImageField(upload_to='images',storage=gd_storage, blank=True, null=True)
     is_sold = models.BooleanField(default=False)
+    is_allowed = models.BooleanField(default=False) #allow admin to check whether product placement should be allowed
     created_by = models.ForeignKey(User, related_name='items', on_delete=models.CASCADE)
     created_at = models.DateTimeField(auto_now_add=True)
     
