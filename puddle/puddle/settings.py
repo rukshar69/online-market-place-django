@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'item',
     'dashboard',
     'conversation',
+    'stats',
     'gdstorage' #google drive storage
 ]
 
