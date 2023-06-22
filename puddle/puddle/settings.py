@@ -37,7 +37,7 @@ LOGOUT_REDIRECT_URL = '/'
 # Application definition
 
 INSTALLED_APPS = [
-    'django_crontab',
+    #'django_crontab',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -174,4 +174,4 @@ GOOGLE_DRIVE_STORAGE_MEDIA_ROOT = 'puddle_media'
 #GOOGLE_DRIVE_STORAGE_JSON_KEY_FILE = '/media/rukshar/partition2/personal_projects/experimental/puddle/puddle/double-operator-384907-29b18b1d293a.json'
 #GOOGLE_DRIVE_STORAGE_MEDIA_ROOT = '<base google drive path for file uploads>' # OPTIONAL
 
-CRONJOBS = [('*/5 * * * *', 'stats.cron.calculate_stats')]
+#CRONJOBS = [('*/5 * * * *', 'stats.cron.calculate_stats')]
