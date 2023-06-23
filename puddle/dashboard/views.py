@@ -5,14 +5,15 @@ from item.models import Item
 
 @login_required
 def index(request):
-    items = Item.objects.filter(created_by=request.user)
     items_not_approved = Item.objects.filter(created_by=request.user, is_allowed = False)
     items_approved = Item.objects.filter(created_by=request.user, is_allowed = True)
+    items_sold = Item.objects.filter(created_by=request.user, is_sold = True, is_allowed=True)
 
     return render(request, 'dashboard/index.html', {
         #'items': items,
         'items_not_approved': items_not_approved,
         'items_approved':items_approved,
+        'items_sold':items_sold
     })
 
 
