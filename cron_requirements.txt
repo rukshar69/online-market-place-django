@@ -1,0 +1,5 @@
+# temp/cron.py: 3
+python_dotenv == 1.0.0
+
+# temp/cron.py: 2
+supabase == 1.0.3
