@@ -29,6 +29,8 @@ Image Hosting: Google Drive API using Python's [Django Google Drive Storage](htt
     - At the bottom of the detail page for an item, at most 3 item cards of the same category not owned by the logged in user will appear
 - The [Inbox](https://online-market-place-django.vercel.app/inbox/) page lists the conversations for items where the sellers have been contacted. Clicking on a conversation leads one to the chatroom where one can send further messages to the seller.
 - For superusers, there is an additional button in the nav bar named *Approval* that lists all the items that haven't been approved by the superuser(admin). The admin clicks on an item that leads them to a page to mark the check box for approving the item to appear in homepage and browse page.
+- **Statistics**: A model named **TotalSale** is created that tracks the total number of products available for sale and their total value. Each day a **Git Action** [script](https://github.com/rukshar69/online-market-place-django/blob/main/.github/workflows/cron-stats.yml) is automatically run(*cron job*) that runs a separate python script, [cron.py](https://github.com/rukshar69/online-market-place-django/blob/main/puddle/cron.py). This Python script access our Supabase DB's TotalSale table and updates it with everyday's total number of products available for sale and their total value. 
+    - A purple button **stats** is added. Upon clicking it, users can view line charts of  total number of products available for sale and their total value for each day from the TotalSale table. **chartjs** is used to create these charts
 
 # References
 - [YouTube tutorial to construct this project locally](https://www.youtube.com/watch?v=ZxMB6Njs3ck)
