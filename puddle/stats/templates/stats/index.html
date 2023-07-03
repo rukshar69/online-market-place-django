@@ -1,0 +1,80 @@
+{% extends 'core/base.html' %}
+
+{% block title %}Stats of Sales{% endblock %}
+
+{% block content %}
+<div class="grid grid-cols-2 gap-2">
+    <div class="mt-6 px-6 py-12 bg-gray-100 rounded-xl">
+        <canvas class="h-1/4" id="lineChartTotalSale"></canvas>
+    </div>
+    
+    <div class="mt-6 px-6 py-12 bg-gray-100 rounded-xl">
+        <canvas class="h-1/4" id="lineChartTotalProducts"></canvas>
+    </div>
+
+</div>
+
+  
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script>
+
+    // LINECHART of TOTAL SALES
+    var ctx = document.getElementById('lineChartTotalSale').getContext('2d');
+    var chartData = {
+        labels: [
+            {% for data in qs %}
+                '{{ data.created_at }}',
+            {% endfor %}
+        ],
+        datasets: [{
+            label: 'Total Value of Products on Sale',
+            data: [{%for data in qs%}{{data.total_val_of_onsale_prd}},{%endfor%}],
+            borderColor: 'blue',
+            fill: false
+        }]
+    };
+    var myChart = new Chart(ctx, {
+        type: 'line',
+        data: chartData,
+        options: {
+            responsive: true,
+            scales: {
+                y: {
+                    //beginAtZero: true
+                }
+            }
+        }
+    });
+
+    // LINECHART of TOTAL PRODUCTS ON SALE
+    var ctx2 = document.getElementById('lineChartTotalProducts').getContext('2d');
+    var chartData = {
+        labels: [
+            {% for data in qs %}
+                '{{ data.created_at }}',
+            {% endfor %}
+        ],
+        datasets: [{
+            label: 'Total Products on Sale',
+            data: [{%for data in qs%}{{data.total_products_on_sale}},{%endfor%}],
+            borderColor: 'green',
+            fill: false
+        }]
+    };
+    var myChart = new Chart(ctx2, {
+        type: 'line',
+        data: chartData,
+        options: {
+            responsive: true,
+            scales: {
+                y: {
+                    //beginAtZero: true
+                }
+            }
+        }
+    });
+
+</script>
+  {% endblock %}
+
